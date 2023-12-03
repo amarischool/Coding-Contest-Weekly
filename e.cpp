@@ -2,29 +2,29 @@
 using namespace std;
 int main()
 {
-    char c[3][3];
+    int n;
+    cin >> n;
 
-    for(int i=0; i<3; i++)for(int j=0; j<3; j++) cin >> c[i][j];
+    int rt = sqrt(n);
 
-    if(c[0][0]==c[0][1] && c[0][0]==c[0][2] && c[0][0]=='O') cout<<'O';
-    else if(c[1][0]==c[1][1] && c[1][0]==c[1][2] && c[1][0]=='O') cout<<'O';
-    else if(c[2][0]==c[2][1] && c[2][0]==c[2][2] && c[2][0]=='O') cout<<'O';
-    else if(c[0][0]==c[1][1] && c[0][0]==c[2][2] && c[0][0]=='O') cout<<'O';
-    else if(c[2][0]==c[1][1] && c[2][0]==c[0][2] && c[2][0]=='O') cout<<'O';
-    else if(c[0][0]==c[1][0] && c[0][0]==c[2][0] && c[0][0]=='O') cout<<'O';
-    else if(c[0][1]==c[1][1] && c[0][1]==c[2][1] && c[0][1]=='O') cout<<'O';
-    else if(c[0][2]==c[1][2] && c[0][2]==c[2][2] && c[0][2]=='O') cout<<'O';
-
-    else if(c[0][0]==c[0][1] && c[0][0]==c[0][2] && c[0][0]=='X') cout<<'X';
-    else if(c[1][0]==c[1][1] && c[1][0]==c[1][2] && c[1][0]=='X') cout<<'X';
-    else if(c[2][0]==c[2][1] && c[2][0]==c[2][2] && c[2][0]=='X') cout<<'X';
-    else if(c[0][0]==c[1][1] && c[0][0]==c[2][2] && c[0][0]=='X') cout<<'X';
-    else if(c[2][0]==c[1][1] && c[2][0]==c[0][2] && c[2][0]=='X') cout<<'X';
-    else if(c[0][0]==c[1][0] && c[0][0]==c[2][0] && c[0][0]=='X') cout<<'X';
-    else if(c[0][1]==c[1][1] && c[0][1]==c[2][1] && c[0][1]=='X') cout<<'X';
-    else if(c[0][2]==c[1][2] && c[0][2]==c[2][2] && c[0][2]=='X') cout<<'X';
-
-    else cout << 'T';
+    if(rt*rt != n)
+    {
+        cout << "no";
+    }
+    else
+    {
+        bool b = true;
+        for(int i=2; i<rt; i++)
+        {
+            if(rt%i == 0)
+            {
+                b = false;
+                break;
+            }
+        }
+        if(b)cout << "yes";
+        else cout << "no";
+    }
 
     return 0;
 }
