@@ -2,29 +2,31 @@
 using namespace std;
 int main()
 {
-    char c[3][3];
+    double x1, y1, x2, y2;
+    cin >> x1 >> y1 >> x2 >> y2;
 
-    for(int i=0; i<3; i++)for(int j=0; j<3; j++) cin >> c[i][j];
+    double d1 = sqrt(x1*x1 + y1*y1);
+    double d2 = sqrt(x2*x2 + y2*y2);
 
-    if(c[0][0]==c[0][1] && c[0][0]==c[0][2] && c[0][0]=='O') cout<<'O';
-    else if(c[1][0]==c[1][1] && c[1][0]==c[1][2] && c[1][0]=='O') cout<<'O';
-    else if(c[2][0]==c[2][1] && c[2][0]==c[2][2] && c[2][0]=='O') cout<<'O';
-    else if(c[0][0]==c[1][1] && c[0][0]==c[2][2] && c[0][0]=='O') cout<<'O';
-    else if(c[2][0]==c[1][1] && c[2][0]==c[0][2] && c[2][0]=='O') cout<<'O';
-    else if(c[0][0]==c[1][0] && c[0][0]==c[2][0] && c[0][0]=='O') cout<<'O';
-    else if(c[0][1]==c[1][1] && c[0][1]==c[2][1] && c[0][1]=='O') cout<<'O';
-    else if(c[0][2]==c[1][2] && c[0][2]==c[2][2] && c[0][2]=='O') cout<<'O';
+    if(d1 > d2) swap(d1, d2);
 
-    else if(c[0][0]==c[0][1] && c[0][0]==c[0][2] && c[0][0]=='X') cout<<'X';
-    else if(c[1][0]==c[1][1] && c[1][0]==c[1][2] && c[1][0]=='X') cout<<'X';
-    else if(c[2][0]==c[2][1] && c[2][0]==c[2][2] && c[2][0]=='X') cout<<'X';
-    else if(c[0][0]==c[1][1] && c[0][0]==c[2][2] && c[0][0]=='X') cout<<'X';
-    else if(c[2][0]==c[1][1] && c[2][0]==c[0][2] && c[2][0]=='X') cout<<'X';
-    else if(c[0][0]==c[1][0] && c[0][0]==c[2][0] && c[0][0]=='X') cout<<'X';
-    else if(c[0][1]==c[1][1] && c[0][1]==c[2][1] && c[0][1]=='X') cout<<'X';
-    else if(c[0][2]==c[1][2] && c[0][2]==c[2][2] && c[0][2]=='X') cout<<'X';
+    int ans = ceil(d1);
 
-    else cout << 'T';
-
+    if(ans > d1 && ans < d2)
+    {
+        cout << ans;
+    }
+    else
+    {
+        ans ++;
+        if(ans < d2)
+        {
+            cout << ans;
+        }
+        else
+        {
+            cout << -1;
+        }
+    }
     return 0;
 }

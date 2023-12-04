@@ -1,34 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 int main()
 {
-    string x;
-    cin >> x;
-    stack<char> st;
-    bool b = true;
+    int n;
+    cin >> n;
 
-    for (int i = 0; i < x.size(); i++)
-    {
-        if (x[i] == '(')
-        {
-            st.push(x[i]);
-        }
-        else if (!st.empty() && x[i] == ')')
-        {
-            st.pop();
-        }
-        else
-        {
-            b = false;
-            break;
-        }
-    }
+    int digits = ceil(log10(n+1));
+    int div = pow(10, digits-1);
 
-    if (b && st.empty())
-        cout << "Yes";
-    else
-        cout << "No";
+    if(n%div==0)cout<<"Yes";
+    else cout<<"No";
 
     return 0;
 }
