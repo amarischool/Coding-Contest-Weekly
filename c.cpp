@@ -1,28 +1,23 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int n;
-    cin >> n;
-    int y[n], a[n], b[n];
+    string x;
+    cin >> x;
+    int h = stoi(x.substr(0,2));
 
-    for(int i=0; i<n; i++)cin >> y[i];
-    for(int i=0; i<n; i++)cin >> a[i];
-    for(int i=0; i<n; i++)cin >> b[i];
-
-    bool flag = true;
-    for(int i=0; i<n; i++)
+    if (h == 0)
     {
-        if(y[i]+a[i]>2023 && b[i]!=0)continue;
-        else if(y[i]+a[i]<=2023 && b[i]==0)continue;
-        else
-        {
-            flag = false;
-            break;
-        }
+        cout << "12" << x.substr(2, 3);
     }
-    if(flag)cout<<"No";
-    else cout<<"Yes";
+    else if (h > 12)
+    {
+        cout << setw(2) << setfill('0') << h - 12 << x.substr(2, 3);
+    }
+    else
+    {
+        cout << setw(2) << setfill('0') << x.substr(0, 2) << x.substr(2, 3);
+    }
 
     return 0;
 }

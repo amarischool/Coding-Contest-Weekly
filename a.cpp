@@ -1,19 +1,18 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    string x;
-    cin >> x;
-    bool m=false, e=false, o=false, w=false;
-    for(int i=0; i<x.size(); i++)
+    int n;
+    cin >> n;
+
+    for(int i=1; i<=n; i++)
     {
-        if(x[i]=='M')m=true;
-        else if(m && x[i]=='E')e=true;
-        else if(e && x[i]=='O')o=true;
-        else if(o && x[i]=='W')w=true;
+        for(int j=1; j<=n; j++)
+        {
+            cout << '*';
+        }
+        cout << endl;
     }
-    if(m && e && o && w)cout<<"YES";
-    else cout<<"NO";
 
     return 0;
 }

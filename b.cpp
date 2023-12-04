@@ -1,12 +1,21 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+long long lcm(int a, int b)
+{
+    return a*b/__gcd(a,b);
+}
+
 int main()
 {
-    int n, k, m;
-    cin >> n >> k >> m;
-    if(m>n)cout<<"No";
-    else if(m%k==0)cout<<"Yes";
-    else cout<<"No";
-
+    int n;
+    cin >> n;
+    int a[n], ans = 1;
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+        ans = lcm(ans, a[i]);
+    }
+    cout << ans;
     return 0;
 }
