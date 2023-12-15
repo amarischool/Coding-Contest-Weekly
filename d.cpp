@@ -3,32 +3,30 @@ using namespace std;
 
 int main()
 {
-    string x;
-    cin >> x;
-    stack<char> st;
-    bool b = true;
+    string x, y;
+    cin >> x >> y;
 
-    for (int i = 0; i < x.size(); i++)
+    bool b;
+
+    for(int i=0; i<=x.size()-y.size(); i++)
     {
-        if (x[i] == '(')
+        b = true;
+        for(int j=0; j<y.size(); j++)
         {
-            st.push(x[i]);
+            if(x[i+j]!=y[j])
+            {
+                b = false;
+                break;
+            }
         }
-        else if (!st.empty() && x[i] == ')')
+        if(b)
         {
-            st.pop();
-        }
-        else
-        {
-            b = false;
             break;
         }
     }
 
-    if (b && st.empty())
-        cout << "Yes";
-    else
-        cout << "No";
+    if(b) cout << "YES";
+    else cout << "NO";
 
     return 0;
 }

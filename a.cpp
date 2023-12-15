@@ -1,19 +1,24 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    string x;
-    cin >> x;
-    bool m=false, e=false, o=false, w=false;
-    for(int i=0; i<x.size(); i++)
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    cin >> n;
+    while(n--)
     {
-        if(x[i]=='M')m=true;
-        else if(m && x[i]=='E')e=true;
-        else if(e && x[i]=='O')o=true;
-        else if(o && x[i]=='W')w=true;
+        string x;
+        cin >> x;
+        for(int i=0; i<x.size(); i++)
+        {
+            if(x[i]=='1') cout << '0';
+            else cout << '1';
+        }
+        cout << endl;
     }
-    if(m && e && o && w)cout<<"YES";
-    else cout<<"NO";
 
     return 0;
 }

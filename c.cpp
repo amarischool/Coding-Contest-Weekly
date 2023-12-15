@@ -1,28 +1,18 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int n;
-    cin >> n;
-    int y[n], a[n], b[n];
+    string x;
+    cin >> x;
 
-    for(int i=0; i<n; i++)cin >> y[i];
-    for(int i=0; i<n; i++)cin >> a[i];
-    for(int i=0; i<n; i++)cin >> b[i];
+    int rpt = 0;
 
-    bool flag = true;
-    for(int i=0; i<n; i++)
+    for(int i=1; i<x.size(); i++)
     {
-        if(y[i]+a[i]>2023 && b[i]!=0)continue;
-        else if(y[i]+a[i]<=2023 && b[i]==0)continue;
-        else
-        {
-            flag = false;
-            break;
-        }
+        if(x[i]==x[i-1]) rpt ++;
     }
-    if(flag)cout<<"No";
-    else cout<<"Yes";
+
+    cout << rpt;
 
     return 0;
 }

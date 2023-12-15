@@ -1,12 +1,22 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int n, k, m;
-    cin >> n >> k >> m;
-    if(m>n)cout<<"No";
-    else if(m%k==0)cout<<"Yes";
-    else cout<<"No";
+    string x;
+    cin >> x;
+
+    bool b = true;
+
+    for(int i=0; i<x.size(); i++)
+    {
+        if(x[i]!='1' && x[i]!='0')
+        {
+            b = false;
+        }
+    }
+
+    if(b) cout << "Yes";
+    else cout << "No";
 
     return 0;
 }
