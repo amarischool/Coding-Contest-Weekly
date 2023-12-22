@@ -12,6 +12,7 @@ int main()
     {
         x[i] = x[i]+diff;
         if(x[i]<'a') x[i]+=26;
+        else if(x[i]>'z') x[i]-=26;
     }
 
     cout << x << endl;
