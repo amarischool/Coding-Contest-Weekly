@@ -1,30 +1,42 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    char c[3][3];
+    string x;
+    cin >> x;
 
-    for(int i=0; i<3; i++)for(int j=0; j<3; j++) cin >> c[i][j];
+    int l=0, r=0;
 
-    if(c[0][0]==c[0][1] && c[0][0]==c[0][2] && c[0][0]=='O') cout<<'O';
-    else if(c[1][0]==c[1][1] && c[1][0]==c[1][2] && c[1][0]=='O') cout<<'O';
-    else if(c[2][0]==c[2][1] && c[2][0]==c[2][2] && c[2][0]=='O') cout<<'O';
-    else if(c[0][0]==c[1][1] && c[0][0]==c[2][2] && c[0][0]=='O') cout<<'O';
-    else if(c[2][0]==c[1][1] && c[2][0]==c[0][2] && c[2][0]=='O') cout<<'O';
-    else if(c[0][0]==c[1][0] && c[0][0]==c[2][0] && c[0][0]=='O') cout<<'O';
-    else if(c[0][1]==c[1][1] && c[0][1]==c[2][1] && c[0][1]=='O') cout<<'O';
-    else if(c[0][2]==c[1][2] && c[0][2]==c[2][2] && c[0][2]=='O') cout<<'O';
+    for(int i=0; i<x.size(); i++)
+    {
+        if(x[i]=='L')l++;
+        else r++;
+    }
 
-    else if(c[0][0]==c[0][1] && c[0][0]==c[0][2] && c[0][0]=='X') cout<<'X';
-    else if(c[1][0]==c[1][1] && c[1][0]==c[1][2] && c[1][0]=='X') cout<<'X';
-    else if(c[2][0]==c[2][1] && c[2][0]==c[2][2] && c[2][0]=='X') cout<<'X';
-    else if(c[0][0]==c[1][1] && c[0][0]==c[2][2] && c[0][0]=='X') cout<<'X';
-    else if(c[2][0]==c[1][1] && c[2][0]==c[0][2] && c[2][0]=='X') cout<<'X';
-    else if(c[0][0]==c[1][0] && c[0][0]==c[2][0] && c[0][0]=='X') cout<<'X';
-    else if(c[0][1]==c[1][1] && c[0][1]==c[2][1] && c[0][1]=='X') cout<<'X';
-    else if(c[0][2]==c[1][2] && c[0][2]==c[2][2] && c[0][2]=='X') cout<<'X';
+    bool lft = false, rt = false;
 
-    else cout << 'T';
+    if(l>r)lft = true;
+    else rt = true;
+
+    if(lft)
+    {
+        int rtn = l-r;
+        rtn %= 4;
+        if(rtn == 0)cout << "North";
+        else if(rtn == 1)cout << "West";
+        else if(rtn == 2)cout << "South";
+        else cout << "East";
+    }
+    else
+    {
+        int rtn = r-l;
+        rtn %= 4;
+        if(rtn == 0)cout << "North";
+        else if(rtn == 1)cout << "East";
+        else if(rtn == 2)cout << "South";
+        else cout << "West";
+    }
 
     return 0;
 }
