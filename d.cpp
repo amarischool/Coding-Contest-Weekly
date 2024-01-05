@@ -5,30 +5,21 @@ int main()
 {
     string x;
     cin >> x;
-    stack<char> st;
-    bool b = true;
 
-    for (int i = 0; i < x.size(); i++)
+    vector <string> v(x.size());
+
+    int it = 0;
+
+    for(int i=0; i<x.size(); i++)
     {
-        if (x[i] == '(')
+        if(x[i]!='-')v[it]=v[it]+x[i];
+        else it++;
+    }
+    for(int i=0; i<v.size(); i++)
+    {
+        if(!v[i].empty())
         {
-            st.push(x[i]);
-        }
-        else if (!st.empty() && x[i] == ')')
-        {
-            st.pop();
-        }
-        else
-        {
-            b = false;
-            break;
+            cout << v[i].size() << ':' << v[i] << endl;
         }
     }
-
-    if (b && st.empty())
-        cout << "Yes";
-    else
-        cout << "No";
-
-    return 0;
 }

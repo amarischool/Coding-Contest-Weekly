@@ -1,19 +1,29 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+int lcm(int a, int b)
+{
+    return a*b/__gcd(a,b);
+}
+
 int main()
 {
-    string x;
-    cin >> x;
-    bool m=false, e=false, o=false, w=false;
-    for(int i=0; i<x.size(); i++)
+    int n;
+    cin >> n;
+    int a[n], l=1;
+    for(int i=0; i<n; i++)
     {
-        if(x[i]=='M')m=true;
-        else if(m && x[i]=='E')e=true;
-        else if(e && x[i]=='O')o=true;
-        else if(o && x[i]=='W')w=true;
+        cin >> a[i];
+        l = lcm(l, a[i]);
     }
-    if(m && e && o && w)cout<<"YES";
-    else cout<<"NO";
-
+    for(int i=0; i<n; i++)
+    {
+        if(a[i]==l)
+        {
+            cout << a[i];
+            return 0;
+        }
+    }
+    cout << -1;
     return 0;
 }
